@@ -181,6 +181,10 @@ function crearLooming(usuariosConectados) {
                 }
                 enviarA("telefono", msg);
                 return true;
+
+            case "circuloMaximo":
+                enviarA("tablet", msg);
+                return true;
         }
         return false;
     }

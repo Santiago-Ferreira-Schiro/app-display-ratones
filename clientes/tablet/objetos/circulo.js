@@ -82,6 +82,21 @@ const looming = (function () {
             cancelado = true;
         },
 
+        cancelar() {
+            cancelado = true;
+        },
+
+        mostrarMaximo({ color = "#000000", diamMax } = {}) {
+            cancelado = false;
+            if (!diamMax) diamMax = Math.max(window.innerWidth, window.innerHeight);
+
+            pantalla.style.display = "block";   // por si la pantalla gris no estaba puesta
+            disco.style.background = color;
+            disco.style.width = disco.style.height = diamMax + "px";
+            disco.style.transform = "translate(-50%, -50%) scale(1)";   // scale(1) = tamaño máximo
+            disco.style.display = "block";
+        },
+
         // Equivale a estimulo(color, diam_max, incremento) del notebook.
         // Devuelve los tiempos reales de cada expansión.
         async estimulo({ color, diamMax, duracion = 500, pausa = 500, intervalo = 500, repeticiones = 3 }) {

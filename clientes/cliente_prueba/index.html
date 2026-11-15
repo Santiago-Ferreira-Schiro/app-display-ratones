@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#111a18">
+    <title>Control looming</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <main class="app">
+        <h1>Control de prueba</h1>
+
+        <section class="bloque" aria-labelledby="t-sesion">
+            <h2 id="t-sesion">Sesión</h2>
+
+            <button id="btnCirculoMaximo">Circulo máximo</button>
+        </section>
+
+        <label class="campo campo-ancho">Tono de gris del círculo
+            <select id="gris">
+                <option value="#494949">#494949 (73)</option>
+                <option value="#4b4b4b">#4b4b4b (75)</option>
+                <option value="#575757">#575757 (87)</option>
+                <option value="#5a5a5a">#5a5a5a (90)</option>
+                <option value="#606060">#606060 (96)</option>
+                <option value="#646464">#646464 (100)</option>
+                <option value="#666666">#666666 (102)</option>
+                <option value="#696969">#696969 (105)</option>
+                <option value="#6c6c6c">#6c6c6c (108)</option>
+                <option value="#6e6e6e">#6e6e6e (110)</option>
+                <option value="#727272">#727272 (114)</option>
+            </select>
+        </label>
+    </main>
+
+    <!-- importante respetar el orden acá -->
+    <script src="../cliente_ws/main.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

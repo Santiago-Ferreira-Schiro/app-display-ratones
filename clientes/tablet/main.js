@@ -40,3 +40,8 @@ alRecibir("estimulo", async function (msg) {
         tiemposMs: tiempos
     });
 });
+
+alRecibir("circuloMaximo", async function (msg) {
+    looming.prepararPantalla();
+    looming.mostrarMaximo(msg);
+});
