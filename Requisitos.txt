@@ -1,0 +1,51 @@
+Hay que conseguir un fotómetro y luxómetro para saber bien cuanta luz se emite y el nivel de contraste
+
+El artículo da el contraste medido con fotómetro (por ejemplo 8, 12, 15, 18 y 22 % MI en ratas). No hay una conversión directa desde el hex, porque depende de la pantalla y de su brillo. Hasta que midas, no puedes decir que tus listas reproducen esos valores.
+
+Cada lista debe ajustarse a su arena y su pantalla. El artículo define el rango con animales control: el nivel más bajo es el que no provoca respuesta en ninguno, y el más alto el que la provoca en todos. Si cambias de monitor, de altura o de especie, esos puntos se mueven. Es probable que las listas de tu código se hayan ajustado así para sus arenas, pero eso no se puede confirmar desde el código.
+
+
+Tiene que poder mandar el resultado a una BD 
+conectar una cámara que detecte la respuesta
+hacerlo responsive
+meterle cordova
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Lo que no es código
+1. Calibrar el tamaño del disco
+Medí con una regla el ancho físico de la pantalla en cm.
+Dividí el ancho en píxeles (window.innerWidth) entre ese ancho: así tenés px/cm.
+Calculá diamMax = cm_deseados × px_por_cm: 40 cm para ratas y 30 cm para ratones. Es el parámetro diamMax de iniciarSesion.
+
+Una tablet chica no llega a 30 o 40 cm. Lo que importa es el ángulo visual que ocupa el disco, que depende del diámetro y de la altura de la pantalla sobre el animal: ángulo = 2·atan(radio / altura). Con los valores del artículo da unos 41° en ratones (15 cm a 40 cm de altura) y unos 32° en ratas (20 cm a 70 cm). Si tu pantalla es más pequeña, podés bajarla para conservar el mismo ángulo: altura = radio / tan(ángulo/2).
+
+2. Calibrar la luz
+Con un fotómetro en el centro de la arena, medí el fondo solo (Ib) y cada gris con el disco a pantalla completa (Id). Cargalos en CALIBRACION.
+Ajustá el brillo hasta tener unos 39 lux de fondo, y desactivá el brillo automático y el modo nocturno.
+No uses el valor hexadecimal como si fuera luz: la relación entre el hex y la luz real no es lineal y cambia de una pantalla a otra.
+3. Análisis conductual
+Grabá la sesión en video y puntuá después, idealmente con tres observadores que no sepan el grupo o el contraste.
+El campo tiempo_s del CSV sirve para ubicar cada estímulo en el video.
+Si preferís seguir puntuando en vivo, queda como diferencia con el artículo y conviene dejarlo escrito en tu método.
+Para probar sin esperar
+
+Antes de usar animales, bajá ACLIMATACION_MS y ENTRE_ESTIMULOS_MS a unos pocos segundos y hacé una sesión de prueba con la lista Testing. Revisá que:
+
+el CSV tenga una fila por estímulo,
+el botón se bloquee y se desbloquee,
+tiempos_ms se llene.

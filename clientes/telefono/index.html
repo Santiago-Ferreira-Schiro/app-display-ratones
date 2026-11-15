@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#111a18">
+    <title>Control looming</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <main class="app">
+        <h1>Control looming</h1>
+
+        <section class="bloque" aria-labelledby="t-sesion">
+            <h2 id="t-sesion">Sesión</h2>
+
+            <div class="campos">
+                <label class="campo campo-ancho">ID del animal
+                    <input id="animal" placeholder="Ej. R12" autocomplete="off">
+                </label>
+
+                <label class="campo">Especie
+                    <select id="especie">
+                        <option value="rata">Rata</option>
+                        <option value="raton">Ratón</option>
+                    </select>
+                </label>
+
+                <label class="campo">Sexo
+                    <select id="sexo">
+                        <option value="M">Macho</option>
+                        <option value="F">Hembra</option>
+                    </select>
+                </label>
+
+                <label class="campo">Edad
+                    <select id="edad">
+                        <option value="joven">Joven</option>
+                        <option value="viejo">Viejo</option>
+                    </select>
+                </label>
+
+                <label class="campo">Hora ZT
+                    <input id="zt" inputmode="decimal" placeholder="Ej. 5" autocomplete="off">
+                </label>
+
+                <label class="campo campo-ancho">Genotipo (opcional)
+                    <input id="genotipo" placeholder="Ej. Gnat1-/-" autocomplete="off">
+                </label>
+            </div>
+
+            <button id="btnIniciar">Iniciar sesión</button>
+        </section>
+
+        <section class="bloque panel" aria-label="Estado y control del estímulo">
+            <div id="estado" role="status" aria-live="polite">Sin sesión</div>
+            <button id="btnSiguiente">Siguiente estímulo</button>
+        </section>
+
+        <section class="bloque" aria-labelledby="t-respuesta">
+            <h2 id="t-respuesta">Respuesta del animal</h2>
+            <!-- los botones los genera main.js según la especie -->
+            <div id="botonesRespuesta"></div>
+        </section>
+    </main>
+
+    <!-- importante respetar el orden acá -->
+    <script src="../cliente_ws/main.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
